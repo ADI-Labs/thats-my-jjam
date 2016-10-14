@@ -1,0 +1,694 @@
+{
+  "courses": [
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 4, 
+      "name": "Data Structures in Java", 
+      "number": "COMS W3134"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 22, 
+      "name": "Introduction to computer programming (Fortran)", 
+      "number": "COMS W1005"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 26, 
+      "name": "Artificial Intelligence", 
+      "number": "COMS W4701"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 27, 
+      "name": "Fundamentals of Computer Organization", 
+      "number": "CSEE W3826"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 234, 
+      "name": "Computer Science Theory: Computability - Models - Computation", 
+      "number": "COMS W3261"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 238, 
+      "name": "Digital Logic", 
+      "number": "COMS W3823"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 256, 
+      "name": "Combinatorial Theory", 
+      "number": "COMS W4205"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 397, 
+      "name": "Discrete Mathematics", 
+      "number": "COMS W3203"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 462, 
+      "name": "Introduction to Computational Complexity", 
+      "number": "COMS W4236"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 605, 
+      "name": "Introduction to Software Engineering", 
+      "number": "COMS W3156"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 639, 
+      "name": "Sequential Logic Circuit", 
+      "number": "COMS E6831"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 663, 
+      "name": "User Interface Design", 
+      "number": "COMS W4170"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 664, 
+      "name": "Introduction to Databases", 
+      "number": "COMS W4111"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 861, 
+      "name": "Scientific Computation I", 
+      "number": "COMS W3210"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 885, 
+      "name": "Programming Languages: C++", 
+      "number": "COMS W3101"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 995, 
+      "name": "Honors Introduction to Computer Science (Java)", 
+      "number": "COMS W1009"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 1138, 
+      "name": "Introduction to Computers", 
+      "number": "COMS W1001"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 1335, 
+      "name": "MIDI Music Production", 
+      "number": "MUSI V2205"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 1616, 
+      "name": "Advanced Software Engineering", 
+      "number": "COMS W4156"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 1622, 
+      "name": "Data Structures and Algorithms", 
+      "number": "COMS W3137"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 1654, 
+      "name": "Java", 
+      "number": null
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 1748, 
+      "name": "Programming Languages: C#", 
+      "number": "COMS W3101"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 1921, 
+      "name": "Machine Learning", 
+      "number": "COMS W4771"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 1967, 
+      "name": "Computational Genomics", 
+      "number": "CBMF W4761"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2006, 
+      "name": "Honors Data Structures and Algorithms", 
+      "number": "COMS W3139"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2008, 
+      "name": "Data Structures in C", 
+      "number": "COMS W3133"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2287, 
+      "name": "Introduction to Computational Learning Theory", 
+      "number": "COMS W4252"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2384, 
+      "name": "Operating Systems I", 
+      "number": "COMS W4118"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2386, 
+      "name": "Computer Vision", 
+      "number": "COMS W4731"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2387, 
+      "name": "Programming & Problem Solving", 
+      "number": "COMS W4444"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2401, 
+      "name": "Network Security", 
+      "number": "COMS W4180"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2403, 
+      "name": "Computational Aspects of Robotics", 
+      "number": "COMS W4733"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2485, 
+      "name": "Advanced Internet Services", 
+      "number": "COMS E6181"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2598, 
+      "name": "Intro to Computer Science- Programming in C", 
+      "number": "COMS W1003"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2634, 
+      "name": "Computer Graphics", 
+      "number": "COMS W4160"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2746, 
+      "name": "Advanced Topics in Image-Based Rendering", 
+      "number": "E6998"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2767, 
+      "name": "Topics in Computer Science: Computational Aspects of Geometric Design", 
+      "number": "COMS E6998"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2830, 
+      "name": "Information Theory", 
+      "number": "CSEE E6717"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2867, 
+      "name": "Advanced Cryptography", 
+      "number": "COMS E6261"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2869, 
+      "name": "Web-Enhanced Information Management", 
+      "number": "COMS E6125"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2906, 
+      "name": "Object-Oriented Programming and Design in Java", 
+      "number": "COMS W1007"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2943, 
+      "name": "Introduction to Biomedical Informatics", 
+      "number": "COMS W4001"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 2970, 
+      "name": "Introduction to Cryptography", 
+      "number": "COMS W4261"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 3105, 
+      "name": "Programming Languages and Translators", 
+      "number": "COMS W4115"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 3807, 
+      "name": "Intro to Computer Science- Programming in Java", 
+      "number": "COMS W1004"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 3992, 
+      "name": "Computational Linear Algebra", 
+      "number": "COMS W3251"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 4027, 
+      "name": "Programming Languages: Java", 
+      "number": "COMS W3101"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 4079, 
+      "name": "Analysis of Algorithms I", 
+      "number": "COMS W4231"
+    }, 
+    {
+      "department_ids": [
+        7, 
+        48
+      ], 
+      "id": 4251, 
+      "name": "Fundamentals of Computer Systems", 
+      "number": "CSEE W3827"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 4758, 
+      "name": "Advanced Programming", 
+      "number": "COMS W3157"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 4899, 
+      "name": "Topics in Computer Science: Video Game Design and Production", 
+      "number": "COMS W4995"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 4900, 
+      "name": "Compilers", 
+      "number": "COMS W4119"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 4901, 
+      "name": "Graph Theory", 
+      "number": "COMS W4203"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 4902, 
+      "name": "Computer Networks", 
+      "number": "CSEE W4119"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 4903, 
+      "name": "Natural Language Processing", 
+      "number": "COMS W4705"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 4907, 
+      "name": "Security Architecture & Engineering", 
+      "number": "COMS W4187"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 4956, 
+      "name": "Advanced Database Systems", 
+      "number": "COMS E6111"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 4957, 
+      "name": "Intro to Computer Science- Programming in MATLAB", 
+      "number": "COMS W1005"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 5002, 
+      "name": "Programming Languages: MATLAB", 
+      "number": "COMS W3101"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 5041, 
+      "name": "Spoken Language Processing", 
+      "number": "COMS W4706"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 5150, 
+      "name": "Biometrics", 
+      "number": "COMS W4737"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 5167, 
+      "name": "Topics in Computer Science: VoIP Security", 
+      "number": "COMS W4995"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 5366, 
+      "name": "C++prog For Derviatives Pricing", 
+      "number": "COMS W4995-1"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 5392, 
+      "name": "Computer Architecture", 
+      "number": "CSEE W4824-1"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 5519, 
+      "name": "Programming Languages: Python", 
+      "number": "COMS W3101"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 5544, 
+      "name": "Combinatorial Theory", 
+      "number": "COMS W4205"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 5638, 
+      "name": "Programming Languages: Java Scripting Languages", 
+      "number": "COMS W3101"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 5794, 
+      "name": "Topics in Computer Science: Machine Translation", 
+      "number": "COMS E6998"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 5890, 
+      "name": "Topics in Computer Science: Intro to the Semantic Web", 
+      "number": "COMS W4995"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 5902, 
+      "name": "Topics in Computer Science: Machine Learning for NLP", 
+      "number": "COMS E6998"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 5922, 
+      "name": "Introduction to Quantum Computing", 
+      "number": "COMS W4281"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6026, 
+      "name": "Principles and Practices of Parallel Programming", 
+      "number": "COMS 4130"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6038, 
+      "name": "Advanced Logic Design", 
+      "number": "CSEE 4823"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6079, 
+      "name": "Intro to Information Science", 
+      "number": "COMS W1001"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6152, 
+      "name": "Topics in Computer Science: Computational Approaches to Emotional Speech", 
+      "number": "COMS E6995"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6362, 
+      "name": "Ruby On Rails", 
+      "number": "W3101"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6511, 
+      "name": "Cloud Computing", 
+      "number": "COMSE6998"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6676, 
+      "name": "Computer Animation", 
+      "number": "COMS W4167"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6706, 
+      "name": "INTRODUCTION TO COMPUTER APPLICATIONS IN HEALTH CARE", 
+      "number": "BINF G4001"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6718, 
+      "name": "Search Engine Technology", 
+      "number": "E6998"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6719, 
+      "name": "Topics in Computer Science: Search Engine Technology", 
+      "number": "COMS E6998"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6732, 
+      "name": "Introduction to Computer Science for Engineers/Applied Scientists - Python", 
+      "number": "ENGI E1006"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6779, 
+      "name": "Computer Vision and Machine Learning for Mobile Platforms", 
+      "number": "COMS 6998"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6810, 
+      "name": "Topics in Computer Science: Social Networks", 
+      "number": "COMS 6998"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6811, 
+      "name": "Algorithms for Data Science", 
+      "number": "COMS 4246"
+    }, 
+    {
+      "department_ids": [
+        7
+      ], 
+      "id": 6815, 
+      "name": "Numerical Algorithms and Complexity", 
+      "number": "COMS W4241"
+    }
+  ], 
+  "status": "success"
+}
