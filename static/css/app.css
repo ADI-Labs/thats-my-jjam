@@ -1,1 +1,15 @@
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+
+button {
+    background-color: #FF9900;
+    color: #EEEEEE;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+
 
