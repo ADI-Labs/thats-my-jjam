@@ -3,8 +3,20 @@ import requests
 import json
 app = Flask(__name__)
 @app.route('/',methods = ['GET'])
-def getNames():
-    r = requests.get('http://api.culpa.info/courses/department_id/7')
+URL = 'http://api.culpa.info/courses/department_id/7'
+
+def getAllData():
+    return null
+def getProfessors():
+    r = requests.get(URL)
+    json_data = json.loads(r.text)
+    array = [len(json_data['courses'])]
+    for i in range(len(json_data['courses'])):
+        array[i] = str(json_data['courses'][i]['name'])
+    return array
+
+def getCourseNames():
+    r = requests.get(URL)
     jason_data = json.loads(r.text)
     array = ""
     for i in range(len(jason_data['courses'])):
