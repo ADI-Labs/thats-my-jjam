@@ -1,0 +1,26 @@
+sudo: required
+dist: trusty
+
+notifications:
+  email: false
+
+language: python
+python:
+  - "3.5"
+cache: pip
+
+before_install:
+  - pip install --upgrade pip
+
+install:
+  - pip install -r requirements.txt
+
+before_script:
+  - pip freeze
+
+script:
+  - flake8
+  - PYTHONPATH=. py.test --verbose --cov
+
+after_success:
+  - pip install python-coveralls && coveralls
