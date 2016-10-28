@@ -1,11 +1,19 @@
 from flask import Flask, request
 import requests, json, pymongo
 from pymongo import MongoClient
-client = MongoClient()
-db = client.test_database
+
+def connect():
+    connection = MongoClient("ds031257.mlab.com",31257)
+    handle = connection["general_info_database"]
+    handle.authenticate("admin","admin1")
+    return handle
+
+handle=connect()
+db = handle.general_info_database
 app = Flask(__name__)
 # URL = 'http://api.culpa.info/courses/department_id/7'
 URL = 'doc.json'
+
 
 """
 def getAllData():
@@ -37,11 +45,7 @@ class Course:
                         section,
                         course_title,
                         course_subtitle,
-                        time,
-                        location,
                         call_number,
-                        num_enrolled,
-                        max_size,
                         num_fixed_units,
                         description):
         self.professor = professor
@@ -50,11 +54,7 @@ class Course:
         self.section = section
         self.course_title = course_title
         self.course_subtitle = course_subtitle
-        self.time = time
-        self.location = location
         self.call_number = call_number
-        self.num_enrolled = num_enrolled
-        self.max_size = max_size
         self.num_fixed_units = num_fixed_units
         self.description = description
 
@@ -90,12 +90,7 @@ def load_json_to_database(posts):
                     course["Course"][9:] if course["Course"] else "",
                     course["CourseTitle"],
                     course["CourseSubtitle"],
-                    ' '.join(course["Meets1"][:19].split())
-                        if course["Meets1"] else "",
-                    course["Meets1"][19] if course["Meets1"] else "",
                     course["CallNumber"],
-                    course["NumEnrolled"],
-                    course["MaxSize"],
                     units,
                     ""
                     )
@@ -106,16 +101,19 @@ def load_json_to_database(posts):
 
 @app.route('/', methods=['GET'])
 def getInfo():
-    posts = db.posts
+    posts = db.courses
 
     # Clear the database before
-    posts.remove()
+    # posts.remove()
 
-    load_json_to_database(posts)
+    #load_json_to_database(posts)
 
     string = ""
-    for post in posts.find():
-        string += str(post) + "\n"
+    for course in posts.find():
+        x  =  "{} ({})\n".format(course["course_title"],course["course"])
+        if x not in string:
+            string += x
+            string += "<br />"
 
     return string
 
