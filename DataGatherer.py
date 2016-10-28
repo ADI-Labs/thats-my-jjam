@@ -10,13 +10,10 @@ class DataGatherer:
         self.index = index
         self.tree = ET.parse('coms.xml')
         self.root = self.tree.getroot()
-        with open(filename) as data_file:
-            self.data = json.load(data_file)
-    def getProfessor(self):
-        return self.data['courses'][self.index]['Instructor1Name']
 
     def getName(self):
-        return self.data['courses'][self.index]['name']
+        name = "COMS"+(root[0][self.index][5].text)
+        return (name)
 
     def getDescription(self):
         return (root[0][self.index][18].text)
@@ -25,7 +22,6 @@ def run():
     dg = DataGatherer(0)
     print(dg.getDescription())
     print(dg.getName())
-    print(dg.getUnits())
 if __name__ == '__main__':
     run()
 
