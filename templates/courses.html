@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} Your Courses {% endblock %}
+{% block body %}
+<h2>Your Courses</h2>
+<div class="large-6 columns">
+  <div class="panel">
+    <form action="" method="POST">
+        <textarea name="courses"></textarea>
+        <input type="submit" value="Add Courses">
+    </form>
+  </div>
+</div>
+
+<div class="large-6 columns">
+  <div class="panel">
+    <p> Print out courses </p>
+    {% for course in user.courses %}
+    <li>
+      <ul> {{ course }}</ul>
+    </li>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
