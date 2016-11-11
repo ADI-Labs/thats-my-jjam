@@ -1,1 +1,22 @@
+{% extends "base.html" %}
+{% block title %} Log In {% endblock %}
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/loginsignup.css') }}">
+<h2> Log In </h2>
+
+<form action="" method="POST">
+	{{ form.crsf_token }}
+	<div class="username">
+	<p id="un">Username
+		{{ form.name }}
+		</p>
+	</div>
+	<div class="password">
+	<p id="p">Password
+		{{ form.password }}
+		</p>
+	</div>
+	<input type="submit" value="Log In">
+</form>
+{% endblock %}
 
