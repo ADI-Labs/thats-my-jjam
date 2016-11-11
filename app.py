@@ -11,32 +11,8 @@ def connect():
 handle=connect()
 db = handle.general_info_database
 app = Flask(__name__)
-# URL = 'http://api.culpa.info/courses/department_id/7'
 URL = 'doc.json'
 db_users = handle.users_database
-
-"""
-def getAllData():
-    return null
-def getProfessors():
-    r = requests.get(URL)
-    json_data = json.loads(r.text)
-    array = [len(json_data['courses'])]
-    for i in range(len(json_data['courses'])):
-        array[i] = str(json_data['courses'][i]['name'])
-    return array
-"""
-
-"""
-@app.route('/', methods=['GET'])
-def getCourseNames():
-    r = requests.get(URL)
-    jason_data = json.loads(r.text)
-    array = ""
-    for i in range(len(jason_data['courses'])):
-        array = array + str(jason_data['courses'][i]['name'])+'x'
-    return array
-"""
 
 class Course:
     def __init__(self,  professor,
@@ -121,15 +97,7 @@ def getInfo():
 
     """
 
-    register_total = \
-    1 if register_user("Melanie", "123") else 0 + \
-    1 if register_user("Jenny", "123") else 0 + \
-    1 if register_user("Anh", "123") else 0 + \
-    1 if register_user("Sneha", "123") else 0 + \
-    1 if register_user("James", "123") else 0
-
-    return "<b>Registered {} users".format(register_total)
-
+    return "loaded"
 
 def register_user(name, password):
     # Return true on success (is unique name)
