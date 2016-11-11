@@ -13,7 +13,7 @@ db = handle.general_info_database
 app = Flask(__name__)
 # URL = 'http://api.culpa.info/courses/department_id/7'
 URL = 'doc.json'
-
+db_users = handle.users_database
 
 """
 def getAllData():
@@ -73,7 +73,7 @@ def load_json_to_database(posts):
             continue
 
         # If the course doesnt exist already:
-        if not posts.find_one({"Course": title}):
+        if not posts.find_one({"call_number": course["CallNumber"]}):
             units = course["NumFixedUnits"]
             if units:
                 units = "{}.{}".format(units[1], units[2])
@@ -102,12 +102,14 @@ def load_json_to_database(posts):
 @app.route('/', methods=['GET'])
 def getInfo():
     posts = db.courses
+    users = db_users.login_info
 
     # Clear the database before
     # posts.remove()
 
     #load_json_to_database(posts)
 
+    """
     string = ""
     for course in posts.find():
         x  =  "{} ({})\n".format(course["course_title"],course["course"])
@@ -118,14 +120,38 @@ def getInfo():
     return string
 
     """
-    r = requests.get('http://api.culpa.info/courses/department_id/7')
-    jason_data = json.loads(r.text)
-    string=""
-    for item in jason_data['courses']:
-        string += str(item['number'])+" "
-    data = jason_data['courses'][0]['number']
-    return string
-    """
+
+    register_total = \
+    1 if register_user("Melanie", "123") else 0 + \
+    1 if register_user("Jenny", "123") else 0 + \
+    1 if register_user("Anh", "123") else 0 + \
+    1 if register_user("Sneha", "123") else 0 + \
+    1 if register_user("James", "123") else 0
+
+    return "<b>Registered {} users".format(register_total)
+
+
+def register_user(name, password):
+    # Return true on success (is unique name)
+    if not db_users.login_info.find_one({"username" : name}):
+        user = {"username" : name,
+                "password" : password}
+        db_users.login_info.insert_one(user)
+        return True
+    return False
+
+
+def is_correct_password(name, password):
+    user = db_users.login_info.find_one({"username" : name})
+    if user["password"] == password:
+        return True
+    return False
+
+
+def delete_user(name):
+    if db.delete_one({"username": name}).deleted_count:
+        return True
+    return False
 
 
 if __name__ == '__main__':
