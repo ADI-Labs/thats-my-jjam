@@ -9,6 +9,8 @@ python:
   - "3.5"
 cache: pip
 
+services:mongodb
+
 before_install:
   - pip install --upgrade pip
 
