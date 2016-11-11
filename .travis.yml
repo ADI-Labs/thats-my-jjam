@@ -1,0 +1,31 @@
+sudo: required
+dist: trusty
+
+notifications:
+  email: false
+
+language: python
+python:
+  - "3.5"
+cache: pip
+
+before_install:
+  - pip install --upgrade pip
+
+install:
+  - pip install -r requirements.txt
+  - pip install -U git+https://github.com/di/html-linter@9b3a937520e2d6e08aa3614b1c1cbecd8c78dba7
+  - npm install -g csslint jshint
+
+before_script:
+  - pip freeze
+
+script:
+  - flake8
+  - html_lint.py --printfilename --disable=optional_tag,concerns_separation templates/*.html
+  - csslint $(git ls-files static/css/ | grep css$ | grep -v min.css$)
+  - jshint $(git ls-files  static/js/ | grep js$ | grep -v min.js$)
+  - PYTHONPATH=. py.test --verbose --cov
+
+after_success:
+  - pip install python-coveralls && coveralls
