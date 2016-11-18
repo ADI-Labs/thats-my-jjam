@@ -6,16 +6,16 @@
  <meta name="description" content="">
  <meta name="author" content="">
   <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
  <!-- Custom CSS -->
-    <link href="css/2-col-portfolio.css" rel="stylesheet">
-(% endblock %}
-{% block title %} My Past Courses{% endblock %}
+    <link href="static/css/2-col-portfolio.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
 
   <div class="row">
       <div class="large-12 columns">
           <div class="panel">
-	{% block body %}
 
     <!-- Page Content -->
     <div class="container">
@@ -26,71 +26,74 @@
                 <h1 class="page-header">My Past Courses
                     <small>Enter in your past courses</small>
                 </h1>
+				
             </div>
         </div>
+		<div>
+			<form action="" method="POST">
+			<textarea name="courses"></textarea>
+			<input type="submit" value="Enter here">
+			</form>
+		</div
         <!-- /.row -->
-		{{for each year, display a row}}
         <!-- Projects Row -->
         <div class="row">
             <div class="col-md-6 portfolio-item">
 				<h3>
                     Semester 1
                 </h3>	
-				{{for each course in Semester 1}}				
-                <a href="/displayCourse<id>">				
-                    <div class= "pastcourse"> {{course.name}} {{professor.name}}</div>
+				{% for course in courses["1"]%}
+                <a href="/courseinfo/{{course['course']}}">
+                    <div class= "pastcourse"> {{course['course']}} {{ course['course_title'] }} </div>
                 </a>
+				{% endfor %}
             </div>
             <div class="col-md-6 portfolio-item">
 				<h3>
                    Semester 2
                 </h3> 
-				 {{for each course in Semester 2}}
-                <a href="/displayCourse<id>">                   
-                    <div class= "pastcourse"> {{course.name}} {{professor.name}}</div>
+				{% for course in courses["2"]%}
+
+                <a href="/courseinfo/{{course['course']}}">                   
+                    <div class= "pastcourse"> {{course['course']}} {{ course['course_title'] }}</div>
                 </a>
+				{% endfor %}
                                
             </div>
         </div>
         <!-- /.row -->
-		<!-- ADD a row if they click the add year button-->
-		<span><a href="/addyear"><button>Add a year</button></a></span>
-        <hr>
-
-        <hr>        
+		<!--CHANGE TO ALGO LATER-->
+		<span><a href="/recommendations"><button>Get Recommendations!</button></a></span>
+		
 
     </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-	<style>
-	.col-md-6 portfolio-item{
-	width: 500px;
-	height: 50%;}
-	
-	.pastcourse{
-	background-color: #f9bbf9;
-	padding: 3px;
-	radius: 4px;
-	}
-	
-	.reccourse{
-	background-color: #abfcb7;
-	padding: 3px;
-	}
-	.requiredcourse{
-	background-color: #ef4351;
-	
-	}
-	</style>
-	{% endblock %}
+    
           </div>
       </div>
   </div>
+<style>
+.col-md-6 portfolio-item{
+width: 500px;
+height: 50%;}
+
+.pastcourse{
+background-color: #99ffdd;
+padding: 3px;
+radius: 4px;
+}
+
+.reccourse{
+background-color: #abfcb7;
+padding: 3px;
+}
+.requiredcourse{
+background-color: #e6b3ff;
+
+}
+</style>
+
+{% endblock %}
+
 
 
 
