@@ -97,3 +97,27 @@ background-color: #e6b3ff;
 
 
 
+{{for i in range(1,user.year)}}
+	{
+	<div>
+		<h2>Year {{i}}</h2> <!--use flask to get number of year!!!-->
+		<h3>Semester 1</h3>
+			<form action="/enter-past-courses" method="post">  <!--add method?-->
+				<span>
+					<label for="course">Course</label>	
+					<input type="course" id = "pastcourse" name="past_course" />
+				</span>
+				<span>
+					<label for="professor">Professor</label> 
+					<input type="professor" id="courseprofessor" name="course_professor"/>
+				</span>
+				<span>
+					<label for="rating">Rating (1-5)</label>
+					<input type="rating" id="courserating" name="course_rating"/>
+				<span>
+			<div><a href="/addcourse"><button>Add a course</button></a></div>
+		</form>
+	</div>
+	}
+
+<span><a href="/addyear"><button>Next year!</button></a></span>

@@ -1,6 +1,9 @@
 from flask import Flask, render_template, redirect, request
 from flask_login import LoginManager, login_user, logout_user, current_user, login_required
 from pymongo import MongoClient
+from flask_mongoengine import MongoEngine
+from flask_mongoengine.wtf import model_form
+from wtforms import PasswordField
 
 
 app = Flask(__name__)
@@ -68,8 +71,6 @@ def register():
 		return redirect("/register")
 	else:
 		return render_template("signup.html")
-
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -168,6 +169,5 @@ def checkRequired(coursesTaken):
 	if 'CSEE3827' not in courses_taken:
 		needToTake.append(posts.find_one({"course":"CSEE3827"}))
 	return needToTake
-
-if __name__ == "__main__":
+  if __name__ == "__main__":
     app.run()
