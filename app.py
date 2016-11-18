@@ -7,13 +7,13 @@ def connect():
     handle = connection["general_info_database"]
     handle.authenticate("admin","admin1")
     return handle
-required = ["COMS1004","COMS1007","COMS3134","COMS3137","COMS3157","COMS3203","COMS3251","COMS3261","CSEE3827"]
 
 handle=connect()
 db = handle.general_info_database
 app = Flask(__name__)
 URL = 'doc.json'
 db_users = handle.users_database
+
 
 class Course:
     def __init__(self,  professor,
@@ -35,24 +35,26 @@ class Course:
         self.num_fixed_units = num_fixed_units
         self.description = description
 def checkRequired(coursesTaken):
-    try:
+    needToTake = []
+    posts = db.courses
+    '''try:
         first = coursesTaken.index("COMS1007")
     except ValueError:
         try:
             temp = coursesTaken.index("COMS1004")
         except ValueError:
-            return False
+            needToTake += "COMS1004"
     try:
         temp = coursesTaken.index("COMS3134")
     except ValueError:
         try:
             temp = coursesTaken.index("COMS3137")
         except ValueError:
-            return False
+            needToTake += "COMS3134"
     try:
         temp = coursesTaken.index("COMS3157")
     except ValueError:
-        return False
+        needToTake += "
     try:
         temp = coursesTaken.index("COMS3203")
     except ValueError:
@@ -69,7 +71,12 @@ def checkRequired(coursesTaken):
         temp = coursesTaken.index("CSEE3827")
     except ValueError:
         return False
-
+    '''
+    if 'COMS1004' not in coursesTaken:
+        needToTake.append(posts.find_one({"course":"COMS1004"}))
+    if 'COMS3134' not in coursesTaken:
+        needToTake.append(posts.find_one({"course":"COMS3134"}))
+    return needToTake
         
     
 
@@ -118,6 +125,7 @@ def getInfo():
     posts = db.courses
     users = db_users.login_info
 
+
     # Clear the database before
     # posts.remove()
 
@@ -161,6 +169,8 @@ def delete_user(name):
 
 
 if __name__ == '__main__':
-    print(checkRequired(["COMS1004","COMS3134","COMS3157","COMS3203"]))
-    app.debug = True
-    app.run()
+    classes = checkRequired(["COMS1007"])
+    for c in classes:
+        print (c['course_title'] + '\n')
+    # app.debug = True
+    #app.run()
