@@ -1,1 +1,23 @@
-
+{% extends "base.html" %}
+{% block title %} My Course Recommendations{% endblock %}
+{% block body %}
+	<h1>Here are some recommendations</h1>
+	<div>
+		<h2>Year (Number)</h2> <!--use flask-->
+		<div class="semester">
+			<h3>Semester 1</h3>
+			<ul> 
+				<li id="recommendedcourse"><a href="/getCourseInfo">First course</a></li> <!--change name of courses-->
+				<li id="recommendedcourse"><a href="/getCourseInfo">Second course</a></li> 
+				<li id="recommendedcourse"><a href="/getCourseInfo">Third course</a></li> 
+			</ul>
+		</div>
+		<div class="semester">
+			<h3>Semester 2</h3>
+			<ul> 
+				<li id="recommendedcourse"><a href="/getCourseInfo">First course</a></li> <!--change name of courses-->
+				<li id="recommendedcourse"><a href="/getCourseInfo">Second course</a></li> 
+				<li id="recommendedcourse"><a href="/getCourseInfo">Third course</a></li> 
+			</ul>
+		</div>
+	</div>

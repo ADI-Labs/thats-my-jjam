@@ -1,1 +1,20 @@
-
+{% extends "base.html" %}
+{% block title %}SAMPLE CLASS Course Information{% endblock %} <!--get class name-->
+{% block body %}
+<h1>SAMPLE CLASS Course Information</h1>
+<div id="coursebox">
+	<span><h3 id="name">Course Name: </h3></span>
+	<p>{{display_course_name()}}</p>
+	<span><h3 id="subtitle"><b>Professor(s): </b></h3></span> <p> John Kender</p>
+	<div>
+	<span><h3 id="subtitle"><b>Department code: </b></h3></span>
+	<p>COMS</p>
+	<span><h3 id="subtitle"><b>Call number: </b></h3></span>
+	<p>W1007</p>	
+	<h3 id="subtitle"><b>Course description: </b></h3>
+	<p id="description">This is a course description</p>
+	</div>
+</div>
+	
+	
+	
