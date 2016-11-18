@@ -7,6 +7,7 @@ def connect():
     handle = connection["general_info_database"]
     handle.authenticate("admin","admin1")
     return handle
+required = ["COMS1004","COMS1007","COMS3134","COMS3137","COMS3157","COMS3203","COMS3251","COMS3261","CSEE3827"]
 
 handle=connect()
 db = handle.general_info_database
@@ -33,7 +34,44 @@ class Course:
         self.call_number = call_number
         self.num_fixed_units = num_fixed_units
         self.description = description
+def checkRequired(coursesTaken):
+    try:
+        first = coursesTaken.index("COMS1007")
+    except ValueError:
+        try:
+            temp = coursesTaken.index("COMS1004")
+        except ValueError:
+            return False
+    try:
+        temp = coursesTaken.index("COMS3134")
+    except ValueError:
+        try:
+            temp = coursesTaken.index("COMS3137")
+        except ValueError:
+            return False
+    try:
+        temp = coursesTaken.index("COMS3157")
+    except ValueError:
+        return False
+    try:
+        temp = coursesTaken.index("COMS3203")
+    except ValueError:
+        return False
+    try:
+        temp = coursesTaken.index("COMS3251")
+    except ValueError:
+        return False
+    try:
+        temp  = coursesTaken.index("COMS3261")
+    except ValueError:
+        return False
+    try:
+        temp = coursesTaken.index("CSEE3827")
+    except ValueError:
+        return False
 
+        
+    
 
 def load_json_to_database(posts):
     '''This is for loading new courses to be added'''
@@ -123,5 +161,6 @@ def delete_user(name):
 
 
 if __name__ == '__main__':
+    print(checkRequired(["COMS1004","COMS3134","COMS3157","COMS3203"]))
     app.debug = True
     app.run()
