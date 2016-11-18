@@ -37,45 +37,20 @@ class Course:
 def checkRequired(coursesTaken):
     needToTake = []
     posts = db.courses
-    '''try:
-        first = coursesTaken.index("COMS1007")
-    except ValueError:
-        try:
-            temp = coursesTaken.index("COMS1004")
-        except ValueError:
-            needToTake += "COMS1004"
-    try:
-        temp = coursesTaken.index("COMS3134")
-    except ValueError:
-        try:
-            temp = coursesTaken.index("COMS3137")
-        except ValueError:
-            needToTake += "COMS3134"
-    try:
-        temp = coursesTaken.index("COMS3157")
-    except ValueError:
-        needToTake += "
-    try:
-        temp = coursesTaken.index("COMS3203")
-    except ValueError:
-        return False
-    try:
-        temp = coursesTaken.index("COMS3251")
-    except ValueError:
-        return False
-    try:
-        temp  = coursesTaken.index("COMS3261")
-    except ValueError:
-        return False
-    try:
-        temp = coursesTaken.index("CSEE3827")
-    except ValueError:
-        return False
-    '''
-    if 'COMS1004' not in coursesTaken:
+    if 'COMS1004' not in coursesTaken and 'COMS1007' not in coursesTaken:
         needToTake.append(posts.find_one({"course":"COMS1004"}))
-    if 'COMS3134' not in coursesTaken:
+    if 'COMS3134' not in coursesTaken and 'COMS3137' not in coursesTaken:
         needToTake.append(posts.find_one({"course":"COMS3134"}))
+    if 'COMS3157' not in coursesTaken:
+        needToTake.append(posts.find_one({"course":"COMS3157"}))
+    if 'COMS3203' not in coursesTaken:
+        needToTake.append(posts.find_one({"course":"COMS3203"})) 
+    if 'COMS3251' not in coursesTaken:
+        needToTake.append(posts.find_one({"course":"COMS3251"})) 
+    if 'COMS3261' not in coursesTaken:
+        needToTake.append(posts.find_one({"course":"COMS3261"})) 
+    if 'CSEE3827' not in coursesTaken:
+        needToTake.append(posts.find_one({"course":"CSEE3827"}))
     return needToTake
         
     
