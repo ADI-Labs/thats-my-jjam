@@ -1,0 +1,24 @@
+h1{
+	position:middle;
+	color: #0033a0;
+	font-family: "Lucida Sans";
+}
+
+.semester{
+	position: relative;
+	border: 4px solid ‎#B9D9EB;
+	border-radius: 4px;
+}
+
+h3{
+	position: relative;
+	color: #0033a0;
+}
+
+#pastcourse{
+	color: red;
+}
+
+#recommendedcourse{
+	color: green;
+}
