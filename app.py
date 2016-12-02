@@ -64,6 +64,7 @@ def register():
 		username = request.form.get('username', None)
 		password = request.form.get('password', None)
 		yr = request.form.get('yr', None)
+		track = request.form.get("track",None)
 		if db_user.find_one({'username': username}) == None:
 			db_user.insert_one({'username': username, 'password': password, 'year': yr, \
 			"courses":{"1":[], "2":[], "3":[], "4":[], "5":[], "6":[], "7":[], "8":[]}})
@@ -137,7 +138,7 @@ def display_recommendations():
 				course = course.rstrip('\r')
 				if course not in user["courses"]["1"]:
 					db_user.update({'username': name}, {'$push': {"courses.1": course}})
-	needToTake = checkRequired(user["courses"])
+	needToTake = checkRequired(user["courses"],user["track"])
 	courses_list = {}
 	for i in range(1,9):
 		courses_list[str(i)] = []
