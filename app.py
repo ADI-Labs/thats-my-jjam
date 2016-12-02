@@ -146,29 +146,38 @@ def display_recommendations():
 			aCourse = db_courses.find_one({'course' : nameCourse})
 			courses_list[str(i)].append(aCourse)
 	return render_template("recommendations.html", courses = courses_list, needToTake = needToTake)
-def checkRequired(coursesTaken):
-	needToTake = []
-	posts = db_courses
-	
-	courses_taken = []
-	for i in range(1,9):
-		for j in coursesTaken[str(i)]:
-			courses_taken.append(j)
-			
-	if 'COMS1004' not in courses_taken and 'COMS1007' not in courses_taken:
-		needToTake.append(posts.find_one({"course":"COMS1004"}))
-	if 'COMS3134' not in courses_taken and 'COMS3137' not in courses_taken:
-		needToTake.append(posts.find_one({"course":"COMS3134"}))
-	if 'COMS3157' not in courses_taken:
-		needToTake.append(posts.find_one({"course":"COMS3157"}))
-	if 'COMS3203' not in courses_taken:
-		needToTake.append(posts.find_one({"course":"COMS3203"}))
-	if 'COMS3251' not in courses_taken:
-		needToTake.append(posts.find_one({"course":"COMS3251"}))
-	if 'COMS3261' not in courses_taken:
-		needToTake.append(posts.find_one({"course":"COMS3261"}))
-	if 'CSEE3827' not in courses_taken:
-		needToTake.append(posts.find_one({"course":"CSEE3827"}))
-	return needToTake
+def checkRequired(coursesTaken, track):
+    needToTake = []
+    posts = db.courses
+    if 'COMS1004' not in coursesTaken and 'COMS1007' not in coursesTaken:
+        needToTake.append(posts.find_one({"course":"COMS1004"}))
+    if 'COMS3134' not in coursesTaken and 'COMS3137' not in coursesTaken:
+        needToTake.append(posts.find_one({"course":"COMS3134"}))
+    if 'COMS3157' not in coursesTaken:
+        needToTake.append(posts.find_one({"course":"COMS3157"}))
+    if 'COMS3203' not in coursesTaken:
+        needToTake.append(posts.find_one({"course":"COMS3203"}))
+    if 'COMS3251' not in coursesTaken:
+        needToTake.adppend(posts.find_one({"course":"COMS3251"}))
+    if 'COMS3261' not in coursesTaken:
+        needToTake.append(posts.find_one({"course":"COMS3261"}))
+    if 'CSEE3827' not in coursesTaken:
+        needToTake.append(posts.find_one({"course":"CSEE3827"}))
+    trackObj = dbTracks.find_one({"track":track})
+    required = trackObj["required"]
+    electives = trackObj["electives"]
+    num_electives = trackObj["num_electives"]
+    for item in required:
+        if item not in coursesTaken:
+            needToTake.append(posts.find_one({"course":item}))
+    num_elective_courses = 0
+    for item in coursesTaken:
+        if item in electives:
+            num_elective_courses ++
+            electives.remove(item)
+    if num_elective_courses < num_electives:
+        for item in electives:
+            needToTake.append(item)
+    return needToTake
   if __name__ == "__main__":
     app.run()
