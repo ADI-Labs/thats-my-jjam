@@ -44,16 +44,16 @@ def checkRequired(coursesTaken):
     if 'COMS3157' not in coursesTaken:
         needToTake.append(posts.find_one({"course":"COMS3157"}))
     if 'COMS3203' not in coursesTaken:
-        needToTake.append(posts.find_one({"course":"COMS3203"})) 
+        needToTake.append(posts.find_one({"course":"COMS3203"}))
     if 'COMS3251' not in coursesTaken:
-        needToTake.append(posts.find_one({"course":"COMS3251"})) 
+        needToTake.append(posts.find_one({"course":"COMS3251"}))
     if 'COMS3261' not in coursesTaken:
-        needToTake.append(posts.find_one({"course":"COMS3261"})) 
+        needToTake.append(posts.find_one({"course":"COMS3261"}))
     if 'CSEE3827' not in coursesTaken:
         needToTake.append(posts.find_one({"course":"CSEE3827"}))
     return needToTake
-        
-    
+
+
 
 def load_json_to_database(posts):
     '''This is for loading new courses to be added'''

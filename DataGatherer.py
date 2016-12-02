@@ -17,11 +17,21 @@ class DataGatherer:
 
     def getDescription(self):
         return (root[0][self.index][18].text)
-    
+    def combineNameDescription(self):
+        combined = {}
+        name = self.getName()
+        description = self.getDescription()
+        combined[name] = description
+        return combined
+
+
 def run():
+    for i in range (112):
+        dg = DataGatherer(i)
+        combined = dg.combineNameDescription()
+    print(combined)
     dg = DataGatherer(0)
     print(dg.getDescription())
     print(dg.getName())
 if __name__ == '__main__':
     run()
-
