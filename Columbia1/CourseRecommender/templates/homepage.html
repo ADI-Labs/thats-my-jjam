@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+{% extends "base.html" %}
+<head>
+{% block head %}
+	<title> Course Mapper Home </title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+{% endblock %}
+</head>
+{% block body %}
+                <h1>Columbia University Course Mapper</h1>
+				<div class= "features">
+					<h2>Are you stressing over course selection? </h2>
+						<ul style="list-style: none;">
+							<li> CU Course Mapper streamlines your course planning!
+							<li>
+							<li>Enter in your previous courses, and let Course Mapper recommend courses for you!
+							<li>Currently only for computer science students. 
+							<li>Displays and recommends only computer science (COMS) courses.
+						</ul>
+						<div class="buttons">
+						<a href="/register"><button id="launch-button"> Sign Up </button></a>
+						<a href="/login"><button id="launch-button"> Log In </button></a>
+						</div>
+				</div>
+				
+				
+<style>
+a {text-decoration: none;}
+h1, h2{text-align: center}
+
+button#launch-button{
+	text-decoration: none;
+	border: solid 3px white;
+	background-color: #B9D9EB;
+	border-radius: 3px;
+	display: inline;
+	width: 10%;
+	margin: 0 auto;
+	
+}
+.features{
+	margin: auto;
+	padding: 4px 8px 4px 4px;
+	width: 800px;
+	height: 300px;
+	background-color: #B9D9EB;
+	border-radius: 5px;
+}
+
+<
+</style>
+{% endblock%}
+
+</html>

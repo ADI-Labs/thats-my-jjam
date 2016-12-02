@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="utf-8">
+  <title>Course CU Mapper</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+{% block head%}
+{% endblock %}
+</head>
+<body>
+	
+<div class="background-scrim"></div>
+<!--use css to make drop down-->
+<div class="dropdown">
+	<button onclick="/accessAccount" class="dropbtn">My Account</button>
+	<div class="account-dropdown">
+		<!--<a href="/getCourseSchedule">Course Schedule</a>
+		<a href="/getSettings">Settings</a>-->
+		<a href="/logout">Logout</a>
+	</div>
+</div>
+{% block body %}
+	{% endblock %}
+</body>
+ <script src="{{ url_for('static', filename='js/vendor/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.js') }}"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+</body>
+</html>
