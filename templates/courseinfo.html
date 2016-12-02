@@ -1,1 +1,37 @@
+{% extends "base.html" %}
+{% block title %}{{courses['course']}} Course Information{% endblock %} <!--get class name-->
+{% block head %}
+{% endblock %}
+{% block body %}
+<div class="features">
+<h1>{{courses['course_title']}} </h1>
 
+<div id="coursebox">
+	<span><h3><b>Call number: </b></h3></span>
+	<p id="description">{{courses['course']}}</p>
+	<span><h3><b>Professor(s): </b></h3></span>
+	<p id="description">{{courses['professor']}}</p>
+	<span><h3><b>Prerequisites: </b></h3></span>
+	<p id="description">
+	{% for prereq in courses['prereq']%} <!--list of prereqs-->
+		{% for p in range(prereq|length) %}<!-- for each prereq in the list-->
+			{{ prereq[p] }} 
+			{% if p != prereq|length - 1%}
+			or
+			{% endif %}
+		{% endfor %}
+		<br>
+	{% endfor %}
+	</p>	
+	<h3><b>Course description: </b></h3>
+	<p id="description">This is a course description</p>
+</div>
+</div>
+<style>
+.coursebox{
+	background-color: rgb(255,255,255, 0.5);
+	margin: 50%;
+}
+</style>
+{% endblock%}
+	

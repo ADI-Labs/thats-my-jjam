@@ -1,1 +1,17 @@
-i
+{% extends "base.html" %}
+{% block title %} Sign Up {% endblock %}
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/loginsignup.css') }}">
+<h2> Sign Up </h2>
+
+<form action="" method="POST">
+    <label for="username">Name:</label>
+    <input type="text" name="username">
+    <label for="password">Password:</label>
+  	<input type="password" name="password">
+	<label for="year">Class Year (Enter 1 to 4):</label>
+	<input type="yr" name="year">
+    <button class="button" type="submit">Signup</button>
+</form>
+
+{% endblock %}
