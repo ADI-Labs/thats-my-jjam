@@ -1,0 +1,32 @@
+h2{
+	color: #0033a0;
+	font-family: "Lucida Sans";
+	text-align: center;	
+}
+
+form{
+	border: 4px;
+	border-color: gray; 
+}
+#id{
+	display: inline;
+}
+#p{
+	display:inline;
+}
+.username{
+	border-width: 2px;
+	border-style: solid;
+	border-color: #C4D8E2;
+	border-radius: 4px;
+	padding: 5px;
+	position: center;	
+}
+.password{
+	border-width: 2px;
+	border-style: solid;
+	border-color: #C4D8E2;
+	border-radius: 4px;
+	padding: 5px;
+	position: center;	
+}
