@@ -158,7 +158,7 @@ def checkRequired(coursesTaken, track):
     if 'COMS3203' not in coursesTaken:
         needToTake.append(posts.find_one({"course":"COMS3203"}))
     if 'COMS3251' not in coursesTaken:
-        needToTake.adppend(posts.find_one({"course":"COMS3251"}))
+        needToTake.append(posts.find_one({"course":"COMS3251"}))
     if 'COMS3261' not in coursesTaken:
         needToTake.append(posts.find_one({"course":"COMS3261"}))
     if 'CSEE3827' not in coursesTaken:
@@ -173,7 +173,7 @@ def checkRequired(coursesTaken, track):
     num_elective_courses = 0
     for item in coursesTaken:
         if item in electives:
-            num_elective_courses ++
+            num_elective_courses+=1
             electives.remove(item)
     if num_elective_courses < num_electives:
         for item in electives:
