@@ -10,9 +10,10 @@ def connect():
 
 handle=connect()
 db = handle.general_info_database
+dbtracks = handle.tracks
 app = Flask(__name__)
 URL = 'doc.json'
-db_users = handle.users_database
+db_users = handle.usernames
 
 
 class Course:
@@ -34,7 +35,7 @@ class Course:
         self.call_number = call_number
         self.num_fixed_units = num_fixed_units
         self.description = description
-def checkRequired(coursesTaken):
+def checkRequired(coursesTaken, track):
     needToTake = []
     posts = db.courses
     if 'COMS1004' not in coursesTaken and 'COMS1007' not in coursesTaken:
@@ -46,11 +47,26 @@ def checkRequired(coursesTaken):
     if 'COMS3203' not in coursesTaken:
         needToTake.append(posts.find_one({"course":"COMS3203"}))
     if 'COMS3251' not in coursesTaken:
-        needToTake.append(posts.find_one({"course":"COMS3251"}))
+        needToTake.adppend(posts.find_one({"course":"COMS3251"}))
     if 'COMS3261' not in coursesTaken:
         needToTake.append(posts.find_one({"course":"COMS3261"}))
     if 'CSEE3827' not in coursesTaken:
         needToTake.append(posts.find_one({"course":"CSEE3827"}))
+    trackObj = dbTracks.find_one({"track":track})
+    required = trackObj["required"]
+    electives = trackObj["electives"]
+    num_electives = trackObj["num_electives"]
+    for item in required:
+        if item not in coursesTaken:
+            needToTake.append(posts.find_one({"course":item}))
+    num_elective_courses = 0
+    for item in coursesTaken:
+        if item in electives:
+            num_elective_courses ++
+            electives.remove(item)
+    if num_elective_courses < num_electives:
+        for item in electives:
+            needToTake.append(item)
     return needToTake
 
 
