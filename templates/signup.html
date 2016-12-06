@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %} Sign Up {% endblock %}
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/loginsignup.css') }}">
+<h2> Sign Up </h2>
+
+<form action="" method="POST">
+    <label for="username">Name:</label>
+    <input type="text" name="username">
+    <label for="password">Password:</label>
+  	<input type="password" name="password">
+	<label for="year">Class Year (Enter 1 to 4):</label>
+	<input type="yr" name="year">
+    <button class="button" type="submit">Signup</button>	
+	<label for="track">CS Track:</label>
+	<div class="track-checkboxes">
+		<input type="radio" name = "track" value="FOUND">Foundations of CS</input>
+		<input type="radio" name = "track" value="SOFTSYS">Software Systems</input>
+		<input type="radio" name = "track" value="INTEL">Intelligent Systems</input>
+		<input type="radio" name = "track" value="APPLI">Applications</input>
+		<input type="radio" name = "track" value="VISGRP">Vision & Graphics</input>
+		<input type="radio" name = "track" value="DIGSYS">Digital Systems</input>
+	</div>
+</form>
+
+
+
+{% endblock %}

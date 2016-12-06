@@ -1,18 +1,15 @@
 {% extends "base.html" %}
-{% block title %}Login{% endblock %}
+{% block title %} Log In {% endblock %}
 {% block body %}
-<h2>Login</h2>
-
+<h2>Log In</h2>
 <form action="" method="POST">
-  {{ form.csrf_token }}
-  <div>
-    {{ form.name.label}}
-    {{ form.name }}
-  </div>
-  <div>
-    {{ form.password.label }}
-    {{ form.password }}
-  </div>
-  <input type="submit" value="Login">
+    <label for="username">Name:</label>
+    <input type="text" name="username">
+    <label for="password">Password:</label>
+  	<input type="password" name="password">
+  	<button class="button" type="submit">Log In</button>
 </form>
 {% endblock %}
+
+
+
