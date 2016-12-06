@@ -187,7 +187,7 @@ def checkRequired(coursesTaken, track):
 	electives = []
 	for elective in trackObj["electives"]:
 		electives.append(elective)
-	num_electives = trackObj["num_electives"]
+	num_electives = int(trackObj["num_electives"])
 
 	for item in required:
 		if item not in courses_taken:
@@ -197,7 +197,7 @@ def checkRequired(coursesTaken, track):
 	for item in courses_taken:
 		if item in electives:
 			num_elective_courses += 1
-			electives.remove(a)
+			electives.remove(item)
 
 
 	if num_elective_courses < num_electives:
