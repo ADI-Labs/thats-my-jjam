@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">My Past Courses
-                    <small>Enter in your past courses</small>
+                    <small>Enter in your past courses (ex: COMS1007 2) </small>
                 </h1>
 				
             </div>
@@ -37,30 +37,35 @@
 		</div
         <!-- /.row -->
         <!-- Projects Row -->
+        {% for sem in range(1,9,2) %}
+        {% if courses[sem|string()]|length > 0%}
         <div class="row">
             <div class="col-md-6 portfolio-item">
 				<h3>
-                    Semester 1
+                    Semester {{ sem }}
                 </h3>	
-				{% for course in courses["1"]%}
+				{% for course in courses[sem|string()] %}
                 <a href="/courseinfo/{{course['course']}}">
                     <div class= "pastcourse"> {{course['course']}} {{ course['course_title'] }} </div>
                 </a>
 				{% endfor %}
             </div>
+        {% if courses[(sem+1)|string()]|length > 0%}
             <div class="col-md-6 portfolio-item">
-				<h3>
-                   Semester 2
+        <h3>
+                    Semester {{ sem + 1}}
                 </h3> 
-				{% for course in courses["2"]%}
-
-                <a href="/courseinfo/{{course['course']}}">                   
-                    <div class= "pastcourse"> {{course['course']}} {{ course['course_title'] }}</div>
+        {% for course in courses[(sem + 1)|string()] %}
+                <a href="/courseinfo/{{course['course']}}">
+                    <div class= "pastcourse"> {{course['course']}} {{ course['course_title'] }} </div>
                 </a>
-				{% endfor %}
-                               
+        {% endfor %}
             </div>
+        {% endif %}
         </div>
+        {% endif %}
+        {% endfor %}
+
         <!-- /.row -->
 		<!--CHANGE TO ALGO LATER-->
 		<span><a href="/recommendations"><button>Get Recommendations!</button></a></span>
@@ -97,27 +102,4 @@ background-color: #e6b3ff;
 
 
 
-{{for i in range(1,user.year)}}
-	{
-	<div>
-		<h2>Year {{i}}</h2> <!--use flask to get number of year!!!-->
-		<h3>Semester 1</h3>
-			<form action="/enter-past-courses" method="post">  <!--add method?-->
-				<span>
-					<label for="course">Course</label>	
-					<input type="course" id = "pastcourse" name="past_course" />
-				</span>
-				<span>
-					<label for="professor">Professor</label> 
-					<input type="professor" id="courseprofessor" name="course_professor"/>
-				</span>
-				<span>
-					<label for="rating">Rating (1-5)</label>
-					<input type="rating" id="courserating" name="course_rating"/>
-				<span>
-			<div><a href="/addcourse"><button>Add a course</button></a></div>
-		</form>
-	</div>
-	}
 
-<span><a href="/addyear"><button>Next year!</button></a></span>
