@@ -4,6 +4,9 @@ from pymongo import MongoClient
 from flask_mongoengine import MongoEngine
 from flask_mongoengine.wtf import model_form
 from wtforms import PasswordField
+import numpy as np  
+import graphlab
+import pandas as pd
 
 
 app = Flask(__name__)
@@ -115,7 +118,7 @@ def add_courses():
 					db_user.update({'username': name}, {'$push': {"courses."+str(course_sem): course_name}})
 
 	user = db_user.find_one({'username': name})		
-	needToTake = checkRequired(user["courses"], user["track"])
+	needToTake = checkRequired(user["courses"], user["track"],name)
 	courses_list = {}
 	for i in range(1,9):
 		courses_list[str(i)] = []
@@ -149,7 +152,7 @@ def display_recommendations():
 		return redirect('/pastcourses')
 
 	user = db_user.find_one({'username': name})
-	needToTake = checkRequired(user["courses"], user["track"])
+	needToTake = checkRequired(user["courses"], user["track"], name)
 	courses_list = {}
 	for i in range(1,9):
 		courses_list[str(i)] = []
@@ -158,7 +161,7 @@ def display_recommendations():
 			courses_list[str(i)].append(aCourse)
 	return render_template("recommendations.html", courses = courses_list, needToTake = needToTake)
 
-def checkRequired(coursesTaken, track):
+def checkRequired(coursesTaken, track, name):
 	needToTake = [[],[]]
 	posts = db_courses
 	
@@ -166,21 +169,19 @@ def checkRequired(coursesTaken, track):
 	for i in range(1,9):
 		for j in coursesTaken[str(i)]:
 			courses_taken.append(j)
-			
-	if 'COMS1004' not in courses_taken and 'COMS1007' not in courses_taken:
-		needToTake[0].append(posts.find_one({"course":"COMS1004"}))
-	if 'COMS3134' not in courses_taken and 'COMS3137' not in courses_taken:
-		needToTake[0].append(posts.find_one({"course":"COMS3134"}))
-	if 'COMS3203' not in courses_taken:
-		needToTake[0].append(posts.find_one({"course":"COMS3203"}))
-	if 'COMS3157' not in courses_taken:
-		needToTake[0].append(posts.find_one({"course":"COMS3157"}))
-	if 'COMS3251' not in courses_taken:
-		needToTake[0].append(posts.find_one({"course":"COMS3251"}))
-	if 'COMS3261' not in courses_taken:
-		needToTake[0].append(posts.find_one({"course":"COMS3261"}))
-	if 'CSEE3827' not in courses_taken:
-		needToTake[0].append(posts.find_one({"course":"CSEE3827"}))
+	coreCourses = ['COMS1004','COMS1007','COMS3134','COMS3137','COMS3203','COMS3157'
+					,'COMS3251','COMS3261', 'CSEE3827']
+	for course in coreCourses:
+		if course not in courses_taken:
+			needToTake[0].append(posts.find_one({"course":course}))
+	if posts.find_one({"course":'COMS1004'}) in needToTake[0] and 'COMS1007' in courses_taken:
+		needToTake[0].remove(posts.find_one({"course":'COMS1004'}))
+	if posts.find_one({"course":'COMS1007'}) in needToTake[0] and 'COMS1004' in courses_taken:
+		needToTake[0].remove(posts.find_one({"course":'COMS1007'}))
+	if posts.find_one({"course":'COMS3134'}) in needToTake[0] and 'COMS3137' in courses_taken:
+		needToTake[0].remove(posts.find_one({"course":'COMS3134'}))
+	if posts.find_one({"course":'COMS3137'}) in needToTake[0] and 'COMS3134' in courses_taken:
+		needToTake[0].remove(posts.find_one({"course":'COMS3137'}))
 
 	trackObj = db_tracks.find_one({"track":track})
 	required = trackObj["required"]
@@ -199,12 +200,52 @@ def checkRequired(coursesTaken, track):
 			num_elective_courses += 1
 			electives.remove(item)
 
+	recs = recommend(name)
+	recs = list(set(recs)-set(coreCourses))
+	print(recs)
+	recs = list(set(recs) & set(electives))
+	print(recs)
+		#if item in coreCourses:
+		#	print(item + " removed")
+		#	recs.remove(item)
 
 	if num_elective_courses < num_electives:
-		for item in electives:
+		for item in recs:
 			if posts.find_one({"course": item}) != None:
 				needToTake[1].append(posts.find_one({"course": item}))
+		
 	return needToTake
  
+def recommend(name):
+	#cursor = db_user.find({})
+	#users = [res for res in cursor]
+	#outdata = {'user':[],'course':[],'rating':[]}
+	#for user in users:
+	#	for sem in range(1,9):
+	#		courses_list = user["courses"][str(sem)]
+	#		for course in courses_list:
+	#			outdata['user'].append(user["username"])
+	#			outdata['course'].append(course)
+	#			outdata['rating'].append(np.random.normal(8, 1,1)[0])
+	#df = pd.DataFrame(outdata, columns = ['user', 'course', 'rating'])
+	#df.to_csv('result.csv')
+	#sf = graphlab.SFrame(data = 'result.csv')
+	#m = graphlab.recommender.ranking_factorization_recommender.create(sf, user_id='user', item_id='course', target ='rating') 
+	#recs = m.recommend()
+	#recs.save('recs.csv',format='csv')
+	recs = graphlab.SFrame(data = 'recs.csv')
+	user_recs = {}
+	print(recs)
+	for i in range(0,len(recs['user'])):
+		if recs['user'][i] not in user_recs:
+			user_recs[recs['user'][i]] = []
+		user_recs[recs['user'][i]].append(recs['course'][i])
+
+	for user in user_recs:
+		if user == name:
+			print(user_recs[name])
+			return user_recs[name]
+
+
 if __name__ == "__main__":
     app.run()
