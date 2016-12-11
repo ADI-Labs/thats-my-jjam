@@ -31,8 +31,10 @@
         </div>
 		<div>
 			<form action="" method="POST">
-			<textarea name="courses"></textarea>
+			<div class="form-group form-inline">
+				<textarea name="courses"></textarea>			
 			<input type="submit" value="Enter here">
+			</div>
 			</form>
 		</div>
         <!-- /.row -->
@@ -67,13 +69,15 @@
         {% endfor %}
         <!-- /.row -->
 		<!--CHANGE TO ALGO LATER-->
-		<span><a href="/pastcourses"><button>Get Recommendations!</button></a></span>
+		<a href="/recommendations"><button type="button" class="btn btn-default navbar-btn" aria-label="Get Recommendations">
+			<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Enter more courses
+		</button></a>
 		{% for course in needToTake[0]%}
 		<a href="/courseinfo/{{ course['course'] }}"><p class="requiredcourse"> {{ course['course'] }} {{ course['course_title'] }} </p></a>
 		{% endfor%}
-    {% for course in needToTake[1]%}
-    <a href="/courseinfo/{{ course['course'] }}"><p class="electivecourse"> {{ course['course'] }} {{ course['course_title'] }} </p></a>
-    {% endfor%}
+		{% for course in needToTake[1]%}
+		<a href="/courseinfo/{{ course['course'] }}"><p class="reccourse"> {{ course['course'] }} {{ course['course_title'] }} </p></a>
+		{% endfor%}
     </div>
     
           </div>
@@ -84,20 +88,6 @@
 width: 500px;
 height: 50%;}
 
-.pastcourse{
-background-color: #99ffdd;
-padding: 3px;
-radius: 4px;
-}
-
-.electivecourse{
-background-color: #abfcb7;
-padding: 3px;
-}
-.requiredcourse{
-background-color: #e6b3ff;
-
-}
 </style>
 
 {% endblock %}

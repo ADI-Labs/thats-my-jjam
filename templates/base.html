@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" class="full">
 
 <head>
   <meta charset="utf-8">
   <title>Course CU Mapper</title>
+
+<!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+
 <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 
 
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -14,23 +18,47 @@
 <body>
 	
 <div class="background-scrim"></div>
-<!--use css to make drop down-->
+<!--use css to make drop down
 <div class="dropdown">
 	<button onclick="/accessAccount" class="dropbtn">My Account</button>
 	<div class="account-dropdown">
 		<!--<a href="/getCourseSchedule">Course Schedule</a>
-		<a href="/getSettings">Settings</a>-->
+		<a href="/getSettings">Settings</a>
 		<a href="/logout">Logout</a>
 	</div>
 </div>
+-->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+	<a href="/"><button type="button" class="btn btn-default navbar-btn" aria-label="Home">
+			<span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
+		</button></a>
+		{%if isLoggedIn==False%}
+		<a href="/login"><button type="button" class="btn btn-default navbar-btn" aria-label="Login">
+		<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login 			
+		</button></a>
+		{%endif%}
+		{%if isLoggedIn==True%}
+		<a href="/logout"><button type="button" class="btn btn-default navbar-btn" aria-label="Logout">
+			<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout
+		</button></a>
+		{% endif %}
+		
+	</div>
+</nav>
+
 {% block body %}
-	{% endblock %}
+{% endblock %}
 </body>
+<!--
  <script src="{{ url_for('static', filename='js/vendor/jquery.min.js') }}"></script>
   <script src="{{ url_for('static', filename='js/foundation.js') }}"></script>
-  <script>
-    $(document).foundation();
-  </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	-->
 
 </body>
+<style>
+
+</style>
 </html>

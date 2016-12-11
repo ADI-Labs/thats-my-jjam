@@ -17,6 +17,7 @@ app.config['WTF_CSRF_ENABLED'] = True
 
 login_manager = LoginManager()
 login_manager.init_app(app)
+isLoggedIn=False
 
 def connect():
     connection = MongoClient("ds031257.mlab.com",31257)
@@ -50,7 +51,7 @@ class User():
 
 @app.route("/")
 def homepage():
-	return render_template("homepage.html")
+	return render_template("homepage.html", isLoggedIn=False)
 
 
 @login_manager.user_loader
@@ -63,8 +64,8 @@ def load_user(name):
 
 
 
-@app.route("/register", methods=['GET', 'POST'])
-def register():
+@app.route("/signup", methods=['GET', 'POST'])
+def signup():
 	if request.method == 'POST':
 		username = request.form.get('username', None)
 		password = request.form.get('password', None)
@@ -74,9 +75,9 @@ def register():
 			db_user.insert_one({'username': username, 'password': password, 'track': track, 'year': yr, \
 			"courses":{"1":[], "2":[], "3":[], "4":[], "5":[], "6":[], "7":[], "8":[]}})
 			return redirect("/login")
-		return redirect("/register")
+		return redirect("/signup")
 	else:
-		return render_template("signup.html")
+		return render_template("signup.html", isLoggedIn=False)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -93,7 +94,7 @@ def login():
     	else:
     		return redirect("/login")
     else:
-    	return render_template('login.html')
+    	return render_template('login.html', isLoggedIn=False)
 
 
 @app.route("/logout")
@@ -126,7 +127,7 @@ def add_courses():
 			aCourse = db_courses.find_one({'course' : nameCourse})
 			courses_list[str(i)].append(aCourse)
 	
-	return render_template("pastcourses.html", courses = courses_list, needToTake = needToTake)
+	return render_template("pastcourses.html", courses = courses_list, needToTake = needToTake, isLoggedIn = True)
     
 
 	
@@ -134,7 +135,7 @@ def add_courses():
 @login_required
 def display_course_info(id):
     courses = list(db_courses.find({'course':id}))
-    return render_template("courseinfo.html", courses = courses[0])
+    return render_template("courseinfo.html", courses = courses[0], isLoggedIn = True)
 	
 @app.route("/recommendations", methods=['GET', 'POST'])
 def display_recommendations():
@@ -159,7 +160,7 @@ def display_recommendations():
 		for nameCourse in user['courses'][str(i)]:
 			aCourse = db_courses.find_one({'course' : nameCourse})
 			courses_list[str(i)].append(aCourse)
-	return render_template("recommendations.html", courses = courses_list, needToTake = needToTake)
+	return render_template("recommendations.html", courses = courses_list, needToTake = needToTake, isLoggedIn = True)
 
 def checkRequired(coursesTaken, track, name):
 	needToTake = [[],[]]
@@ -191,7 +192,7 @@ def checkRequired(coursesTaken, track, name):
 	num_electives = int(trackObj["num_electives"])
 
 	for item in required:
-		if item not in courses_taken:
+		if item not in courses_taken and posts.find_one({"course":item}) != None:
 			needToTake[0].append(posts.find_one({"course":item}))
 
 	num_elective_courses = 0
@@ -202,9 +203,8 @@ def checkRequired(coursesTaken, track, name):
 
 	recs = recommend(name)
 	recs = list(set(recs)-set(coreCourses))
-	print(recs)
 	recs = list(set(recs) & set(electives))
-	print(recs)
+
 		#if item in coreCourses:
 		#	print(item + " removed")
 		#	recs.remove(item)

@@ -4,9 +4,9 @@
 {% endblock %}
 {% block body %}
 <div class="features">
-<h1>{{courses['course_title']}} </h1>
 
-<div id="coursebox">
+<div id="coursebox" class="gray-background">
+<h1>{{courses['course_title']}} </h1>
 	<span><h3><b>Call number: </b></h3></span>
 	<p id="description">{{courses['course']}}</p>
 	<span><h3><b>Professor(s): </b></h3></span>
@@ -32,6 +32,7 @@
 	background-color: rgb(255,255,255, 0.5);
 	margin: 50%;
 }
+p{
+font-size:16px;}
 </style>
 {% endblock%}
-	

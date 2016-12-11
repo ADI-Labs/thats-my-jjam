@@ -1,27 +1,72 @@
-
-.col-md-6 portfolio-item{
-width: 500px;
-height: 50%;}
-
-.pastcourse{
-background-color: #f9bbf9;
-padding: 3px;
-radius: 4px;
+.full {
+    background: url("https://d3n8a8pro7vhmx.cloudfront.net/columbia109/pages/9/features/original/Columbia-University-Butler-Library-1-3.jpg?1398786079") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
 }
-
-.reccourse{
-background-color: #abfcb7;
+.col-md-6 portfolio-item{
+height: 50%;
+width: 500px;
+}
+button#launch-button{
+	text-decoration: none;
+	border: solid 3px white;
+	background-color: #B9D9EB;
+	border-radius: 3px;
+	display: inline;
+	width: 10%;
+	margin: 0 auto;
+	
+}
+.features{
+	padding-top: 30px;
+}
+.btn-default{
+	background-color: #406b82!important;
+	border-color: transparent !important;
+	color: whitesmoke !important;
+}
+.pastcourse{
+background-color: #a2c2d2;
 padding: 3px;
+text-decoration: none;
+color: white;
+font-weight: bold;
+}
+.reccourse{
+background-color: #d2a2c2;
+padding: 3px;
+text-decoration: none;
+color: white;
+font-weight: bold;
 }
 .requiredcourse{
-background-color: #ef4351;
-
+background-color: #c2d2a2;
+padding: 3px;
+text-decoration: none;
+color: white;
+font-weight: bold;
 }
-
-.name{
-	font-family: Tahoma;
+label{
+	color: white;
 	font-size: 20px;
+}
+.jumbotron{
+	padding-top: 30px !important;
+	padding-bottom: 30px !important;
+	width: 900px;
+	height: 500px;	
+}
+.transparent-background{
+	background-color:transparent !important;
+}
+.gray-background{
+	background-color:rgba(255,255,255,0.5) !important;
+}
+.name{
 	color: #0033a0;
+	font-family: Tahoma;
+	font-size: 20px;	
 	text-align: center;
 }
 
@@ -30,68 +75,47 @@ background-color: #ef4351;
 	font-size: 14px;	
 }
 
-
-body{
-background-image: url("https://upload.wikimedia.org/wikipedia/commons/0/0d/Butler_Library_-_1000px_-_AC.jpg");
-background-size: cover;
-}
 h1{
-	color: white;
-	text-align: center;
-	font-size: 24px;
-	font-family: 'Open Sans', sans-serif;
+	color:#b3cdda !important;
+	font-size: 42px !important;
+	font-weight: bolder !important;
+	font-family:'Open Sans', sans-serif !important;	
+	
+}
+h2{
+	color:#DAC0B3 !important;
+	font-size: 32px !important;
+	font-weight: bold !important;
+	font-family:'Open Sans', sans-serif !important;	
 	
 }
 
+body {
+	padding-top: 70px; 
+	background-color:transparent !important;
+	}
 background-scrim {
-	height:100%;
-	width: 100%;
+	background-color: none;
 	background-color: rgba(255,255,255,0.5);
+	height:100%;
+	width: 100%;	
 	z-index: -1;
 	/*position: fixed;*/
 	
 }
 
-.dropdown {
-	display: block;
-	margin: 0%;
+button, a {text-decoration: none !important;}
+.list-group-item{
+	border:none !important;
+	margin: auto !important;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	width: 600px !important;
+	height: 60px !important;
+	/*background-color: rgba(255,255,255,0.5);*/
+	font-family: 'Open Sans', sans-serif !important;
 }
-.dropbtn{
-	background-color: ‎#B9D9EB; /*columbia blue*/
-	color:white;
-	padding: .5em;
-	font-size: 16px;
-	border: none;
-	cursor: pointer;
-}
-.account-dropdown{
-	display:none;
-	position: absolute ;
-	background-color: white;
-	min-width: 160px;
-	box-shadow: 1px 6px 6px rgba(0, 0, 0, 0.2);
-}
-
-.account-dropdown a{
-	color: #0033a0;
-	padding: 12px 16px;
-	text-decoration: none;
-	display:block;
-}
-
-.account-dropdown a:hover {background-color: #f1f1f1}
-.dropdown:hover .account-dropdown{display: block;}
-
-.button{
-	text-decoration: none;
-}
-
-
-.features{
-	margin: auto;
-	padding: 4px 8px 4px 4px;
-	width: 800px;
-	height: 500px;
-	background-color: rgba(255,255,255,0.5);
-	font-family: 'Open Sans', sans-serif;
+.navbar-default{
+	background-color:rgba(255,255,255,0.2) !important;
+	border-color:transparent !important;
 }
