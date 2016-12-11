@@ -1,28 +1,40 @@
 {% extends "base.html" %}
-{% block title %} Sign Up {% endblock %}
+<head>
+{% block head %}
+	<title> Signup </title>
+{% endblock %}
+</head>
 {% block body %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/loginsignup.css') }}">
-<h2> Sign Up </h2>
 
-<form action="" method="POST">
-    <label for="username">Name:</label>
-    <input type="text" name="username">
-    <label for="password">Password:</label>
-  	<input type="password" name="password">
-	<label for="year">Class Year (Enter 1 to 4):</label>
-	<input type="yr" name="year">
-    <button class="button" type="submit">Signup</button>	
+
+<div class="container gray-background"><form action="" method="POST">
+<h2 class="text-center"> Sign Up </h2>
+	<div class="form-group form-inline">
+		<label for="username">Name:</label>
+		<input type="text" name="username">
+	</div>
+	<div class="form-group form-inline">
+		<label for="password">Password:</label>
+		<input type="password" name="password">
+	</div>
+	<div class="form-group form-inline">
+		<label for="year">Class Year (Enter 1 to 4):</label>
+		<input type="yr" name="year"> 	
+	</div>
+	<div class="form-group">
 	<label for="track">CS Track:</label>
-	<div class="track-checkboxes">
 		<input type="radio" name = "track" value="foundations">Foundations of CS</input>
 		<input type="radio" name = "track" value="software">Software Systems</input>
 		<input type="radio" name = "track" value="intelligent">Intelligent Systems</input>
 		<input type="radio" name = "track" value="applications">Applications</input>
 		<input type="radio" name = "track" value="vision">Vision & Graphics</input>
 		<input type="radio" name = "track" value="digital">Digital Systems</input>
-		<input type="radio" name = "track" value="advanced">Advanced</input>
+		<input type="radio" name = "track" value="advanced">Advanced</input>	
 	</div>
-</form>
+	<a href="/signup"> <button type="button" class="btn btn-default center-block">
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Sign Up </button></a>
+					</div>
+</form></div>
 
 
 

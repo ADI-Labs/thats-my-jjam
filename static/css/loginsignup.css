@@ -1,7 +1,7 @@
 h2{
-	position:middle;
 	color: #0033a0;
 	font-family: "Lucida Sans";
+	text-align: center;	
 }
 
 form{
@@ -15,14 +15,18 @@ form{
 	display:inline;
 }
 .username{
-	padding: 5px;
-	position: center;
-	border: 2px solid ‎#B9D9EB;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #C4D8E2;
 	border-radius: 4px;
+	padding: 5px;
+	position: center;	
 }
 .password{
-	padding: 5px;
-	position: center;
-	border: 2px solid ‎#B9D9EB;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #C4D8E2;
 	border-radius: 4px;
+	padding: 5px;
+	position: center;	
 }

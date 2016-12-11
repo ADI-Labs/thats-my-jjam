@@ -4,52 +4,33 @@
 <head>
 {% block head %}
 	<title> Course Mapper Home </title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 {% endblock %}
 </head>
 {% block body %}
-                <h1>Columbia University Course Mapper</h1>
-				<div class= "features">
-					<h2>Are you stressing over course selection? </h2>
-						<ul style="list-style: none;">
-							<li> CU Course Mapper streamlines your course planning!
-							<li>
-							<li>Enter in your previous courses, and let Course Mapper recommend courses for you!
-							<li>Currently only for computer science students. 
-							<li>Displays and recommends only computer science (COMS) courses.
+                <h1 class="text-center" style=bolder>Columbia University Course Mapper</h1>
+				<div class= "jumbotron center-block gray-background">
+					<h2 class="text-center">Are you stressing over course selection? </h2>
+						<ul class="list-group features">
+							<li class="list-group-item"> CU Course Mapper streamlines your course planning!</li>
+							<li class="list-group-item">Enter in your previous courses, and let Course Mapper recommend courses for you!</li>
+							<li class="list-group-item">Currently only for computer science students.</li>
+							<li class="list-group-item">Displays and recommends only computer science (COMS) courses. </li>
 						</ul>
-						<div class="buttons">
-						<a href="/register"><button id="launch-button"> Sign Up </button></a>
-						<a href="/login"><button id="launch-button"> Log In </button></a>
-						</div>
+					<div class=container>
+					<a href="/signup"> <button type="button" class="btn btn-default btn-lg center-block">
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Sign Up </button></a>
+					</div>
 				</div>
 				
 				
 <style>
-a {text-decoration: none;}
-h1, h2{text-align: center}
 
-button#launch-button{
-	text-decoration: none;
-	border: solid 3px white;
-	background-color: #B9D9EB;
-	border-radius: 3px;
-	display: inline;
-	width: 10%;
-	margin: 0 auto;
-	
-}
-.features{
-	margin: auto;
-	padding: 4px 8px 4px 4px;
-	width: 800px;
-	height: 300px;
-	background-color: #B9D9EB;
-	border-radius: 5px;
-}
 
-<
+<!--
+	 #B9D9EB;
+
+}-->
+
 </style>
 {% endblock%}
 
